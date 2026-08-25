@@ -1,0 +1,12 @@
+# Raw / large data files
+data/raw/
+*.csv
+*.parquet
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+__pycache__/
+
+# Private working files — not meant for the public repo
+content-ideas-private.md
+docs/personal-notes/
