@@ -106,3 +106,70 @@ In Phase 3, the analysis will be run twice: once with values capped at the 99.5t
 * Confirm that `docs/02-data-quality-notes.md`, `.gitignore`, and the export query section are actually committed and pushed.
 * About 300 revenue-unverified sessions remain a known limitation. The flag should be carried through the Phase 3 tables.
 * The reason for the roughly 2.6% of sessions with genuinely different revenue values across hits is still unknown.
+
+## Phase 3 - Synthetic layer sourcing
+
+**Decision: Paid Search benchmark source**
+
+Use WordStream's *Google AdWords Industry Benchmarks* from February 29, 2016, verified through the Wayback Machine archive.
+
+[Archived WordStream benchmark source](https://web.archive.org/web/20160307012705/http://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks?utm_source=chatgpt.com)
+
+The study covers 2,367 US client accounts with $34.4M in total spend from Q2 2015.
+
+For the e-commerce vertical, the base case is:
+
+* CTR: 1.66% search / 0.45% display
+* CPC: $0.88 search / $0.29 display
+* CVR: 1.91% search / 0.96% display
+* CPA: $46.07 search / $30.21 display
+
+**Rejected:** An AI-generated Gemini summary of the same source. It gave a different methodology, including $444M in spend, 2,367 accounts, Q4 2015 to Q1 2016, and a CPA of $45.83. These figures do not match the original source.
+
+The AI summary was not used. This reinforces the rule to check AI-generated summaries against the original source before using their figures.
+
+**Unresolved limitation: CPA as CAC assumption**
+
+WordStream's e-commerce CPA is a blended "cost per action" metric. The original article and WordStream's glossary do not clearly say whether the action means a purchase or a lead for this specific e-commerce vertical.
+
+Because of this, using $46.07 as a purchase-level CAC proxy is an assumption, not a verified fact.
+
+This will be carried into Phase 4 as a named limitation. If changing this assumption materially changes the channel ranking, it will be treated as a possible explanation.
+
+---
+
+**Decision: Apparel DTC margin source**
+
+Use two real company S-1 filings from the same FY2016 and FY2017 period.
+
+| Company             | FY2016 GM | FY2017 GM | COGS scope                                       |
+| ------------------- | --------: | --------: | ------------------------------------------------ |
+| Revolve Group (S-1) |    46.58% |    48.47% | Excludes outbound fulfillment and shipping       |
+| Stitch Fix (S-1)    |    44.26% |    44.45% | Includes outbound shipping and styling-box costs |
+
+Sources:
+
+* Revolve Group: sec.gov/Archives/edgar/data/1746618/000156459018023704/ck0001746618-s1.htm
+* Stitch Fix: sec.gov/Archives/edgar/data/1576942/000119312517313629/d400510ds1.htm
+
+**Rejected comparables:**
+
+* **The RealReal:** Wrong period because the relevant filing is from 2019. Its consignment model also does not match a normal purchase and resale model.
+* **Lands' End:** A multichannel catalog and store retailer, not primarily an e-commerce business.
+* **Columbia Sportswear:** Mainly a wholesale manufacturer, so it is not a good DTC comparison.
+
+**Unresolved limitation: COGS definition mismatch**
+
+The margins from Revolve and Stitch Fix are not directly comparable.
+
+Stitch Fix includes shipping and styling-box costs in COGS, while Revolve excludes outbound fulfillment and shipping. Because of this, the roughly 2 to 4 percentage point difference between them is partly caused by how each company defines COGS.
+
+I will not try to normalize the figures. This difference will remain documented as a limitation.
+
+The sensitivity range will use **44.26% to 48.47%**, while Revolve's individual yearly figures will be used as the base case.
+
+**n=2 limitation**
+
+Two companies are better than having no real company benchmarks, but they are still not enough to claim that this represents the apparel e-commerce industry.
+
+The figures represent the disclosed financials of these two companies during this period. They will not be presented as an industry-wide fact.
