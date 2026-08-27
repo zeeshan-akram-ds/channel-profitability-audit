@@ -173,3 +173,28 @@ The sensitivity range will use **44.26% to 48.47%**, while Revolve's individual 
 Two companies are better than having no real company benchmarks, but they are still not enough to claim that this represents the apparel e-commerce industry.
 
 The figures represent the disclosed financials of these two companies during this period. They will not be presented as an industry-wide fact.
+
+## Phase 3 - Margin base case finalized
+
+**Decision:** Base-case apparel DTC gross margin = **45.93%**
+
+Sensitivity range = **[44.26%, 48.47%]**
+
+**Derivation:** I calculated the average margin for each company first:
+
+* Revolve: (46.58% + 48.47%) / 2
+* Stitch Fix: (44.26% + 44.45%) / 2
+
+I then averaged those two company averages to get **45.93%**.
+
+**What this number means:** This is not an estimate of the "true apparel e-commerce margin" under one accounting standard.
+
+It is a practical midpoint between the margins reported by two real companies. Their COGS definitions are different. Revolve excludes outbound shipping and fulfillment, while Stitch Fix includes them.
+
+I did not try to normalize the two companies. I am using 45.93% as a simple working assumption for the synthetic layer, not as a confirmed industry benchmark.
+
+**Range source:** The **44.26% to 48.47%** range is the actual minimum and maximum of the four underlying figures from Revolve FY2016, Revolve FY2017, Stitch Fix FY2016, and Stitch Fix FY2017.
+
+The range has not been padded or adjusted beyond the figures actually observed.
+
+**Carried limitation:** The COGS scope difference from the previous entry still applies. It has not been resolved. I have only turned the available figures into one working base case.
