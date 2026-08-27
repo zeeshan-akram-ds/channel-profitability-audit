@@ -198,3 +198,52 @@ I did not try to normalize the two companies. I am using 45.93% as a simple work
 The range has not been padded or adjusted beyond the figures actually observed.
 
 **Carried limitation:** The COGS scope difference from the previous entry still applies. It has not been resolved. I have only turned the available figures into one working base case.
+
+## Phase 3 - Paid Search benchmark, two-period range finalized
+
+**Source:** Same WordStream article. Both time periods are reported on the page.
+
+[WordStream Google AdWords Industry Benchmarks](https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks?utm_source=chatgpt.com)
+
+**Period 1:** Q2 2015, based on 2,367 accounts and $34.4M in spend. This is the original report, verified through the Wayback Machine.
+
+**Period 2:** August 2017 to January 2018, based on 14,197 accounts and more than $200M in spend. This comes from the current live page and was retrieved directly, not from an archived copy.
+
+### E-commerce vertical
+
+| Metric       | Period 1 (2015) | Period 2 (2017-18) |
+| ------------ | --------------: | -----------------: |
+| CPC (search) |           $0.88 |              $1.16 |
+| CPA (search) |          $46.07 |             $45.27 |
+| CVR (search) |           1.91% |              2.81% |
+| CTR (search) |           1.66% |              2.69% |
+
+**Decision: CPC**
+
+Base case = **$1.02**
+
+Range = **[$0.88, $1.16]**
+
+The base case is the average of the two periods. The range is the actual minimum and maximum from the two periods.
+
+**Decision: CPA**
+
+Base case = **$45.67**
+
+Range = **[$45.27, $46.07]**
+
+Again, the base case is the average and the range uses the actual minimum and maximum.
+
+CPA is much more stable between the two periods than CPC. The CPC range has about a 32% spread, while CPA has only about a 2% spread.
+
+The CVR also increased from 1.91% to 2.81%. This helps explain why CPA stayed relatively stable even though CPC increased. This is a useful internal check on the figures.
+
+**CPA as CAC assumption**
+
+The source provides stronger support for using CPA as a purchase-based CAC proxy, but it does not fully settle the issue.
+
+WordStream's FAQ says conversions are defined based on the "useful measure of success" for each account. It also gives the example that **"For retailers, that may be a sale."**
+
+This supports using e-commerce CPA as a reasonable purchase-based CAC proxy. However, the wording still says "may be", and it is not a definition specifically for this e-commerce dataset.
+
+The assumption is therefore no longer treated as undocumented. It is supported by the source's own explanation for retailers, but it will still be tested in Phase 4 sensitivity analysis.
