@@ -247,3 +247,58 @@ WordStream's FAQ says conversions are defined based on the "useful measure of su
 This supports using e-commerce CPA as a reasonable purchase-based CAC proxy. However, the wording still says "may be", and it is not a definition specifically for this e-commerce dataset.
 
 The assumption is therefore no longer treated as undocumented. It is supported by the source's own explanation for retailers, but it will still be tested in Phase 4 sensitivity analysis.
+
+## Phase 3 - Social (Display/Facebook) and Affiliates benchmark sourcing
+
+**Decision: Display benchmark**
+
+I reused the same WordStream Google Ads source already logged in the Phase 3 Paid Search benchmark entry.
+
+This is not a separate source. The Display Network figures come from a different column in the same e-commerce benchmark table.
+
+| Metric        | Period 1 (2015) | Period 2 (2017-18) |
+| ------------- | --------------: | -----------------: |
+| CPC (display) |           $0.29 |              $0.45 |
+| CPA (display) |          $30.21 |             $65.80 |
+
+Base case CPC = **$0.37**
+
+Range = **[$0.29, $0.45]**
+
+Base case CPA = **$48.01**
+
+Range = **[$30.21, $65.80]**
+
+Display CPA is much less stable between the two periods than Search CPA. The spread is about 118% for Display compared with about 2% for Search.
+
+Because of this, the Display CPA range should stay wide. I will not reduce it to one confident number in the later analysis.
+
+**Decision: Social (Facebook) benchmark**
+
+Use WordStream's Facebook Ad Benchmarks for the Apparel vertical. This is a closer category match than the general e-commerce category used for Search and Display.
+
+[WordStream Facebook Advertising Benchmarks](https://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks?utm_source=chatgpt.com)
+
+The sample covers 256 US accounts with $553K in total spend from November 2016 to January 2017. This falls within the actual GA analysis period of August 2016 to August 2017, so it fits the project period better than the Search benchmarks.
+
+Only one period was found. I did not find a second WordStream Facebook report from a nearby year.
+
+CPC = **$0.45**
+
+CPA = **$10.98**
+
+These figures are used as-is. There is no range because there is only one period. This is treated as a single-period estimate rather than being given the same sensitivity treatment as Search and Display.
+
+The same CPA as CAC limitation applies here. WordStream's FAQ says an action is typically a conversion, but can also include things such as lead submissions and app downloads. It does not clearly define the action specifically for the Apparel vertical.
+
+**Decision: Affiliates**
+
+No synthetic spend will be assigned to Affiliates.
+
+I searched for affiliate commission benchmarks from 2016 to 2017 but could not find a reliable historical source. The available sources I found are from 2025 to 2026 and do not provide a useful historical benchmark.
+
+Affiliates also has the smallest real sample, with only 9 converting sessions. Using a recent benchmark for this channel would add another source of uncertainty to an already very small sample.
+
+The channel will therefore keep its real GA volume and revenue, but will not receive synthetic spend, CAC, or a payback calculation.
+
+It will be clearly marked as **"insufficient data for synthetic layer"**, which is consistent with the insufficient-volume flag from Phase 2.
